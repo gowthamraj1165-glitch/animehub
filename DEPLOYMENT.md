@@ -12,19 +12,17 @@ Estimated time: **20–30 minutes** for a first deploy.
 - A [Vercel](https://vercel.com) account.
 - A [Supabase](https://supabase.com) account.
 - Node.js **20.9+** and npm installed locally.
-- The project pushed to a GitHub repository (the folder is not a git repo yet):
+- The code in a GitHub repository — already set up at
+  <https://github.com/gowthamraj1165-glitch/animehub> (`main`, first commit pushed).
+  If you ever need to point a fresh clone at it:
 
 ```bash
-cd "D:\anime website"
-git init
-git add .
-git commit -m "Initial AnimeHub commit"
-git branch -M main
-git remote add origin https://github.com/<your-user>/<your-repo>.git
-git push -u origin main
+git clone https://github.com/gowthamraj1165-glitch/animehub.git
+cd animehub
 ```
 
-> `.env.local` is git-ignored on purpose. Only `.env.example` (placeholders) should be committed.
+> `.env.local` is git-ignored on purpose. Only `.env.example` (placeholders) is committed.
+> Every deploy after this is just `git push` — Vercel rebuilds automatically.
 
 ---
 
