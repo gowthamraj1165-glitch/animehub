@@ -34,16 +34,25 @@ cd animehub
 
 ### 1a. Create the database schema
 
-Open **SQL Editor** in the Supabase dashboard and run the migration files **in this exact order** (copy the whole file, paste, click **Run**):
+Open **SQL Editor** in the left sidebar, click **New query**, then paste **`supabase/setup-all.sql`** (open it in VS Code or Notepad, `Ctrl+A`, `Ctrl+C`) and click **Run**.
+
+It contains all four migrations in the right order, so it is a single paste. You should see **"Success. No rows returned"** — that is correct, the file creates tables rather than returning data.
+
+Then, optionally, load the sample catalogue: paste **`supabase/seed.sql`** into a new query and **Run**.
+
+<details>
+<summary>Prefer to run the migrations one at a time?</summary>
+
+Use these four files in this exact order, then the seed:
 
 1. `supabase/migrations/20261029000000_init.sql`
 2. `supabase/migrations/20261030000000_anime_detail_columns.sql`
 3. `supabase/migrations/20261031000000_admin_role_and_episode_fields.sql`
 4. `supabase/migrations/20261031000001_protect_profile_role.sql`
+5. `supabase/seed.sql` (optional sample data)
 
-Then, optionally, load the sample catalogue:
-
-5. `supabase/seed.sql`
+`setup-all.sql` is just those four concatenated, so use one or the other — not both.
+</details>
 
 > **Alternative (Supabase CLI):** install the CLI, run `supabase login`, `supabase link --project-ref <ref>`, then `supabase db push`. The seed runs automatically on `supabase db reset`; to load it into a hosted project, paste `supabase/seed.sql` into the SQL editor.
 
