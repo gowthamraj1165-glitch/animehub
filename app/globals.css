@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* AnimeHub dark palette.
+     "canvas" (not "base") avoids colliding with Tailwind's text-base size utility. */
+  --color-canvas: #08080d;
+  --color-surface: #101017;
+  --color-surface-hover: #17171f;
+  --color-line: #23232e;
+  --color-ink: #f3f3f7;
+  --color-muted: #9a9aab;
+  --color-accent: #7c3aed;
+  --color-accent-hover: #6d28d9;
+  --color-accent-soft: #c084fc;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-color: var(--color-line) transparent;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Thin, unobtrusive scrollbar that matches the dark shell */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-line);
+    border: 3px solid var(--color-canvas);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #32323f;
+  }
+}
